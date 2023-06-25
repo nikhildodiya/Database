@@ -1,0 +1,89 @@
+==> Create Database
+
+query: 
+
+Create Database Nobel
+
+==> Create Table
+
+Query:
+
+CREATE TABLE Nobel_Win
+(
+    Year int(10),
+    Subject varchar(10),
+    Winner varchar(10),
+    Country varchar(10),
+    Category varchar(10)
+)
+
+==> Insert Data In Table
+
+Query:
+
+INSERT INTO nobel_win VALUES
+(1970, 'Physics', 'HannesAlfven','Sweden', 'Scientist'),  
+(1970, 'Physics', 'Louis Neel', 'France','Scientist'),
+(1970, 'Chemistry', 'Luis Federico leloir', 'France', 'Scientist'),
+(1970, 'Physiology', 'Ulf Von Euler', 'Sweden', 'Scientist'),
+(1970, 'Physiology', 'Bernard Katz', 'Germany', 'Scientist'),
+(1970, 'Literatre', 'Aleksandr Solzhenitsyn', 'Russia', 'Linguist'),
+(1970, 'Economics', 'Paul Samuelson', 'USA', 'Economist'),
+(1970, 'Physiology', 'Julius Axelrod', 'USA', 'Scientist'),
+(1971, 'Physics', 'Denis Gobar', 'Hungary', 'Scientist'),
+(1971, 'Chemistry', 'Gerhard Herzberg', 'Germany', 'Scientist'),
+(1971, 'Peace', 'Willy Brandt', 'Germany', 'Chancellor'),
+(1971, 'Literature', 'Pablo Nerudo', 'Chile', 'Linguist'),
+(1971, 'Economics', 'Simon kuznets', 'Russia', 'Economist'),
+(1978, 'Peace', 'Anwar Al-Sadat', 'Egpyt', 'President'),
+(1978, 'Peace', 'Menachem Begin', 'Israel', 'Prime Minister'),
+(1987, 'Chemistry', 'Donald j. Cram', 'USA', 'Scientist'),
+(1987, 'Chemistry', 'Jean-Marie Lehn', 'France', 'Scientist'),
+(1987, 'Physiology', 'Susumu Tonegawa', 'Japan', 'Scientist'),
+(1994, 'Economics', 'Reinhard Selten', 'Germany', 'Economist'),
+(1994, 'Peace', 'Yitzhak Rabin', 'Israel', 'Prime Minister'),
+(1987, 'Physics', 'Johannes Georg Bednorz', 'Germany', 'Scientist'),
+(1987, 'Literatre', 'Joseph Brodsky', 'Russia', 'Linguist'),
+(1987, 'Economics', 'Robert Solow', 'USA', 'Economist'),
+(1994, 'Literatre', 'Kenzaburo Oe', 'Japan', 'Linguist')
+
+
+==> Question
+
+Q1. Write sql query to find the nobel prize winners of the year 1970. Return year,subject and winner
+
+Query: SELECT year, subject, winner FROM nobel_win WHERE year = 1970;
+
+
+Q2. Write sql query to find the nobel prize winners in chemistry between the years 1965 and 1975. Begin and end values are includedReturn year, subject, winner and country
+
+Query: SELECT year, subject, winner, country FROM nobel_win WHERE subject = 'Chemistry' AND year >= 1965 AND year <= 1975;
+
+
+
+Q3. Write sql query to retrieve the details of the winners whose first name matches with the string ‘Louis’. Return year,subject,winner,country
+
+Query: SELECT year, subject, winner, country FROM nobel_win WHERE winner LIKE 'Louis%'
+
+
+
+
+Q4. Write sql query to find Nobel prize winners for the subject that does not begin with the letter ‘P’. Order the result by year, descending and winner in ascending
+
+Query: SELECT year, subject, winner, country FROM nobel_win WHERE subject NOT LIKE 'P%' ORDER BY year DESC, winner ASC;
+
+
+
+
+Q5. Write sql query to find the details of 1970 Nobel prize winners. Order the result by subject, ascending except for ‘Chemistry’ and ‘Economics’ which will come at the end of the result set. Return year, subject, winner , country and category.
+
+Query: SELECT year, subject, winner, country, category
+FROM nobel_win
+WHERE year = 1970
+ORDER BY 
+  CASE
+    WHEN subject = 'Chemistry' THEN 2
+    WHEN subject = 'Economics' THEN 3
+    ELSE 1
+  END,
+  subject ASC;
