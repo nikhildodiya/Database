@@ -77,13 +77,4 @@ Query: SELECT year, subject, winner, country FROM nobel_win WHERE subject NOT LI
 
 Q5. Write sql query to find the details of 1970 Nobel prize winners. Order the result by subject, ascending except for ‘Chemistry’ and ‘Economics’ which will come at the end of the result set. Return year, subject, winner , country and category.
 
-Query: SELECT year, subject, winner, country, category
-FROM nobel_win
-WHERE year = 1970
-ORDER BY 
-  CASE
-    WHEN subject = 'Chemistry' THEN 2
-    WHEN subject = 'Economics' THEN 3
-    ELSE 1
-  END,
-  subject ASC;
+Query: SELECT`Year`,`Subject`,`Winner`,`Country`,`Category` FROM `nobel_win` where Year = 1970 ORDER by Subject desc;
