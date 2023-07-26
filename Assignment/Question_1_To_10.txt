@@ -1,0 +1,214 @@
+Q1. What Do You Understand Of Database ???
+
+Ans. Database is Collection Of Inter Related data.
+Databases are used to retrieve data quickly.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q2.What is Normalization?
+
+Answer : Normalization in database design is the process of organizing the data in a database to eliminate redundancy and dependency issues, ensuring data integrity and efficient storage and retrieval of information.The main goal of normalization is to minimize data redundancy
+
+There Is Three Types Of Normalization
+(1).First Normalization Form
+(2).Second Normalization Form
+(3).Third Normalization Form
+
+(1).First Normalization Form
+==> First Normal Form (1NF): Ensures that each column in a table contains only atomic values (indivisible values). It eliminates repeating groups and ensures that each row is uniquely identifiable.
+
+(2).Second Normalization Form
+==> Builds upon 1NF and addresses partial dependencies. It requires that each non-key column in a table is fully functionally dependent on the entire primary key.
+
+(3).Third Normalization Form
+==> Extends the concept of 2NF and deals with transitive dependencies. It requires that each non-key column is dependent only on the primary key and not on any other non-key column.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q3. What is Difference between DBMS and RDBMS?
+
+Answer : 
+
+DBMS
+
+-> DBMS Stands For Database Management System
+-> in DBMS Data stored in Small amount
+-> DBMS stores data as file.
+-> DBMS supports single user.	
+-> In DBMS MySQL, PostgreSQL, SQL Server, Oracle, Microsoft Access etc.
+
+
+RDBMS
+
+-> RDBMS Stands For Relational Database Managemnet System
+-> In RDBMS Data Stored In Large Amount
+-> RDBMS stores data in tabular form.
+-> RDBMS supports multiple users.
+-> XML, Window Registry, Forxpro, etc.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q4. What is MF Cod Rule of RDBMS Systems?
+
+Answer : 12 rules of the relational database management system (RDBMS)
+
+Rule 0: The Foundation Rule - This rule states that a system must qualify as relational by storing its data in tables. Each table consists of rows and columns, with each row representing a record and each column representing an attribute.
+
+Rule 1: Information Rule - According to this rule, all information in the database, including table and column names, as well as data values, must be represented explicitly and not derived from application code.
+
+Rule 2: Guaranteed Access Rule - This rule ensures that each data value in a relational database can be uniquely identified using a combination of table name, primary key, and column name.
+
+Rule 3: Systematic Treatment of Null Values - Rule 3 requires that a relational database must handle missing or unknown data using a systematic approach, typically through the use of NULL values.
+
+Rule 4: Active/Dynamic Online Catalog based on the relational model - The catalog, which contains metadata about the database, must be accessible through the same query language used to manipulate data.
+
+Rule 5: Comprehensive Data SubLanguage Rule - A relational database should have a comprehensive, non-procedural query language that allows users to access data without specifying how to retrieve it.
+
+Rule 6: View Updating Rule - This rule states that a view, which is a virtual table derived from the original tables, should be updatable if it follows certain conditions.
+
+Rule 7: Relational Level Operation (High-Level Insert, Update and Delete) Rule - The system should support set-based operations that can add, modify, or delete multiple records at once, rather than just individual records.
+
+Rule 8: Physical Data Independence Rule - This rule ensures that changes in the physical storage or structure of the database do not affect the logical access to the data.
+
+Rule 9: Logical Data Independence Rule - Rule 9 states that changes to the logical structure of the database (like adding or modifying tables and columns) should not impact the existing applications.
+
+Rule 10: Integrity Independence Rule - The database management system must guarantee the validity and integrity of the data, independent of the applications using the data.
+
+Rule 11: Distribution Independence Rule - In a distributed database environment, this rule requires that the distribution of data should be transparent to the users.
+
+Rule 12: Non-Subversion Rule - The database system must not allow users to bypass or subvert the integrity rules and constraints defined by the database administrator.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q5. What do you understand By Data Redundancy?
+
+Answer : data redundancy means when same kind of data arise multiple time in multiple places and their is data is not consistent it is called data redundancy
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q6. What is DDL Interpreter?
+
+Amswer : DDL interpreter here know as Data Definition Language it work as suggest statement like create, delete, select and we got output in table...
+
+1.Create database:-
+->Create database database_name
+
+2.Create Table:-
+->CREATE TABLE `table_name` 
+(
+    `column_name1` datatype (size),
+    `column_name2` datatype (size),
+    `column_namen` datatype (size),
+);
+
+3.Use database:-
+->To use database 
+    ex. USE `23dec_se`;
+
+4.Desc:-
+->See the structure of the table_name  
+    ex. DESC `employee`;
+
+5.Drop Table:-
+->To delete the table
+    ex. DROP TABLE `TABLE_NAME`;
+
+6.Drop database
+->To delete the database
+    ex. DROP DATABASE `database_name`;
+
+7.Add primary using alter:-
+->ALTER TABLE TABLE_NAME ADD PRIMARY KEY (`COLUMN_name`);
+
+8.Add unique key:-
+->ALTER TABLE TABLE_NAME ADD UNIQUE KEY (`COLUMN_name`);
+
+9.Add Column after creating a table:-
+->ALTER TABLE `table_name` ADD `column_name` data_type (size) AFTER|BEFORE `column_name`
+
+10.Add AUTO_INCREMENT:-
+->ALTER TABLE `employee` CHANGE `old_column_name` `new_column_name` data_type (size)  AUTO_INCREMENT;
+    ->AUTO_INCREMENT column default value must be not_null 
+
+11.Add Foreign key:-
+->ALTER TABLE `table_name` ADD FOREIGN KEY (`column_name`) REFERENCES `REFERENCE_table_name` (`column_name`);
+
+12.Update data:-
+->UPDATE `table_name` set `column_name`='value' WHERE  `column_name` BETWEEN 'VALUES' AND 'VALUES';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q7. What is DML Compiler in SQL?
+ 
+Answer : DML stand for Data Manipulation Compiler. DML compiler compile such statement like Select, update, delete statement in machine readable language.
+
+1.Insert data:-
+->INSERT INTO `employee`(`column_name1`, `column_name2`, `column_name3`, `column_name4`, `column_namen`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-n]')
+
+2.Delete:-
+->DELETE FROM `table_name`; 
+
+3.Delete specific record:-
+->DELETE FROM `table_name` WHERE condition
+
+4.TRUNCATE:-
+->Delete all records,
+    ex. TRUNCATE TABLE `TABLE_NAME`;
+
+5.Delete column:-
+->delete column `column_name` where = condition;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q8: What is SQL Key Constraints writing an Example of SQL Key Constraints
+
+Answer : key constrain in DBMS is uses to check data is accuracy and consistency in a database.
+
+There Is Three Types OF Key
+1. Primary Key
+2. Unique Key
+3. Foreign Key
+
+1) Primary key :- A primary key is a column of table which uniquely identifies each Row In That Table. Only One Primary Key Use In Table. Primary Key Necessary To Add Foreign Key In onther Table...
+
+Query: Alter Table 'Table_Name' ADD PRIMARY KEY 'Column_Name'
+
+2). Unique Key :- Unique key constraints also identifies an individual table uniquely in a relation or table. Unique Constraint Null Value Of Column. Unique constraints are also referenced by the foreign key of another table.
+
+Query: Alter Table 'Table_Name' ADD UNIQUE KEY' 'Column_Name'
+
+3). Foreign Key :- • When, "one" table's primary key field is added to a related "many" table in order to create the common field which relates the two tables, it is called a foreign key in the "many" table. To Execute Foreign Key Primary Key Needed In Another Table Column..
+
+Query: ALTER TABLE `table_name` ADD FOREIGN KEY (`column_name`) REFERENCES `REFERENCE_table_name` (`column_name`);
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q9. What is save Point? How to create a save Point write a Query? 
+
+Answer : Save point is to roll back the transaction at specific point  or we can undo the transaction
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q10. What is trigger and how to create a Trigger in SQL?
+
+Answer : Trigger is the SQL statement that automatically execute on specific event, time, or any event arise on database
+
+Query : DELIMITER $$
+	CREATE TRIGGER `TRIGGER_NAME` (AFTER | BEFORE) {INSERT | UPDATE | DELETE} ON `table_name` FOR EACH ROW 
+    
+    BEGIN
+    
+    	INSERT into `table_name` SET `column_name = new.column_name | old.column_name;
+    	
+    END$$

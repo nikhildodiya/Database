@@ -1,0 +1,116 @@
+Step 1:
+Create Database Company
+
+
+== > Create First Table
+
+Step 2:
+CREATE TABLE Employee
+(
+	Employee_id int (10),
+    First_Name varchar(10),
+    Last_Name varchar(10),
+    Salary int (10),
+    Joining_Date varchar(10),
+    Department Varchar(10)
+)
+
+==> Data Insert In Table
+
+Step 3:
+
+INSERT INTO employee VALUES
+(1, 'John', 'Abraham', 1000000, '01-Jan-13 12:00:00 AM', 'Banking'),
+(2, 'Michael', 'Clarke', 800000, '01-Jan-13 12:00:00 AM', 'Insurance'),
+(3, 'Roy', 'Thomas', 70000, '01-Feb-13 12:00:00 AM', 'Banking'),
+(4, 'Tom', 'Jose', 600000, '01-Feb-13 12:00:00 AM', 'Insurance'),
+(5, 'Jerry', 'Pinto', 650000, '01-Feb-13 12:00:00 AM', 'Insurance'),
+(6, 'Philip', 'Mathew', 750000, '01-Jan-13 12:00:00 AM', 'Services'),
+(7, 'TestName1', '123', 650000, '01-Jan-13 12:00:00 AM', 'Services'),
+(8, 'TestName2', 'Lname%', 600000, '01-Feb-13 12:00:00 AM', 'Insurance')
+
+
+==> Create Second Table
+
+Step 1:
+
+CREATE TABLE incetive
+(
+    Employee_Ref_Id int(10),
+    Incetive_Date varchar(10),
+    incetive_Amount int(10)
+)
+
+== > Insert Data In Above Table
+
+Step 2: 
+
+Query : 
+
+INSERT INTO incetive VALUES
+(1, '01-Feb-13', 5000),
+(2, '01-Feb-13', 3000),
+(3, '01-Feb-13', 4000),    
+(1, '01-Jan-13', 4500),
+(2, '01-Feb-13', 3500)
+
+==> Add Primary Key
+
+Query: ALTER TABLE employee ADD PRIMARY KEY (Employee_id)
+
+==> Add Foreign Key
+
+Query: ALTER TABLE incetive ADD FOREIGN KEY (Employee_Ref_Id) REFERENCES employee (employee_id);
+
+
+
+
+==> Quetions
+
+Q1. Get First_Name from employee table using Tom name “Employee Name”.
+
+Query: SELECT First_Name FROM employee WHERE `First_Name` = 'Tom';
+
+
+
+Q2. Get FIRST_NAME, Joining Date, and Salary from employee table.
+
+Query: Select First_Name, Joining_Date, Salary from employee;
+
+
+
+Q3. Get all employee details from the employee table order by First_Name Ascending and Salary descending?
+
+Query: SELECT * FROM employee ORDER BY First_Name ASC, salary DESC;
+
+
+
+Q4. Get employee details from employee table whose first name contains ‘J’.
+
+Query: SELECT * FROM `employee` WHERE `First_Name` LIKE 'J%';
+	
+
+
+Q5. Get department wise maximum salary from employee table order by salary ascending?
+
+Query: SELECT department, MAX(salary) AS max_salary FROM employee GROUP BY department ORDER BY max_salary ASC;
+
+
+
+Q6. Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
+
+Query: SELECT employee.first_name, incetive.incetive_amount FROM employee INNER JOIN incetive ON employee.Employee_id = incetive.Employee_Ref_Id WHERE incetive.incetive_amount > 3000;
+
+
+
+Q7. g) Create After Insert trigger on Employee table which insert records in view table
+
+Query: DELIMITER $$
+CREATE TRIGGER tr_insert_employee
+AFTER INSERT ON Employee
+FOR EACH ROW
+BEGIN
+    INSERT INTO ViewTable (Employee_id, First_Name, Last_Name, Salary, Joining_Date, Department)
+    VALUES (NEW.employee_id, NEW.First_Name, NEW.Last_Name, NEW.Salary, NEW.Joining_Date, NEW.Department);
+END;
+

@@ -1,0 +1,93 @@
+== > Create Database
+
+Query:
+ 
+Create Database SalesPerson_And_Customer
+
+== > create Table
+
+Query:
+
+CREATE TABLE SalesPerson 
+( 
+	Sno Int(10), 
+	SName varchar(10), 
+	City Varchar(10), 
+	Comm float(10)
+)
+
+== > Insert Data In Table
+
+Query:
+
+INSERT INTO salesperson VALUES
+(1001, 'Peel', 'London', .12),
+(1002, 'Serres', 'San Jones', .13),
+(1004, 'Motika', 'London', .11),
+(1007, 'Rafkin', 'Barcelona', .15),
+(1003, 'Axelrod', 'New York', .1)
+
+
+=== > Create Second Table 
+
+Query:
+
+CREATE TABLE Customer 
+( 
+	CNM int(10), 
+	Cname Varchar(10), 
+	City Varchar(10), 
+	Rating Varchar(10), 
+	Sno Int(10) 
+)
+
+== > Insert Data Into Above Table
+
+Query:
+
+INSERT INTO customer VALUES 
+(201, 'Hoffman', 'Londan', 100, 1001), 
+(202, 'Giovanne', 'Roe', 200, 1003), 
+(203, 'liu', 'San Jose', 300, 1002), 
+(204, 'Grass', 'Barcelona', 100, 1002), 
+(206, 'Clemens', 'Londan', 300, 1007), 
+(207, 'Pereira', 'Roe', 100, 1004);
+
+==> Add Primary Key
+
+Query: ALTER TABLE salesperson ADD PRIMARY KEY (Sno);
+
+
+==> Add Primary Key
+
+Query: ALTER TABLE customer ADD PRIMARY KEY (CNM);
+
+==> Add Foreign Key
+
+Query: ALTER TABLE customer ADD FOREIGN KEY (Sno) REFERENCES salesperson (Sno);
+
+
+==> Questions
+
+Q2. Names and cities of all salespeople in London with commission above 0.12
+
+Query : SELECT SName, City FROM salesperson WHERE City ='London' and Comm < '.12';
+
+
+
+Q3. All salespeople either in Barcelona or in London
+
+Query: SELECT * FROM salesperson WHERE City = 'Barcelona' or City = 'London';
+
+
+Q4. All salespeople with commission between 0.10 and 0.12. (Boundary values should be excluded).
+
+Query: SELECT Comm FROM salesperson WHERE Comm BETWEEN '.10' and '.12';
+
+
+Q5. All customers excluding those with rating <= 100 unless they are located in Rome
+
+Query: SELECT Rating FROM Customer WHERE Rating <= 100 or City ='Roe';
+
+
+

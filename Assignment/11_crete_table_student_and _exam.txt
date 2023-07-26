@@ -1,0 +1,56 @@
+Task 1
+create Table Name : Student and Exam
+
+Query:
+
+step 1:
+
+Create DataBase Task1
+
+Step 2:
+
+create Table Student 
+(
+Rollno int(10),
+Name Varchar(10),
+Branch varchar(10)
+)	
+
+Step 3:
+
+insert into student Values
+(01, 'Jay', 'Computer Science')
+(02, 'Suhani', 'Electronic And Com')
+(03, 'Kriti', 'Electronic And Com')
+
+Step 3:
+Add Primary Key
+
+ALTER TABLE student ADD PRIMARY KEY (rollno);
+
+
+-- >> CREATE SECOND TABLE
+
+Step 1:
+
+Create Table Exam
+(
+rollno int(10),
+S_Code Varchar(10),
+Marks int(10),
+p_Code varchar(10)
+)
+
+Step 2:
+
+INSERT INTO exam VALUES
+(1, 'CS11', 50, 'CS'),
+(1, 'CS12', 60, 'CS'),
+(2, 'EC101', 66, 'EC'),
+(2, 'EC102', 70, 'EC'),
+(3, 'EC101', 45, 'EC'),
+(3, 'EC102', 50, 'EC')
+
+Step 3:
+
+ALTER TABLE exam ADD FOREIGN KEY (Rollno) REFERENCES student (rollno);
