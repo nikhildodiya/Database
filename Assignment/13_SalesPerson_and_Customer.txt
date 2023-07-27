@@ -71,7 +71,7 @@ Query: ALTER TABLE customer ADD FOREIGN KEY (Sno) REFERENCES salesperson (Sno);
 
 Q2. Names and cities of all salespeople in London with commission above 0.12
 
-Query : SELECT SName, City FROM salesperson WHERE City ='London' and Comm < '.12';
+Query : SELECT SName, City FROM salesperson WHERE City ='London' and Comm > '.12';
 
 
 
@@ -88,6 +88,3 @@ Query: SELECT Comm FROM salesperson WHERE Comm BETWEEN '.10' and '.12';
 Q5. All customers excluding those with rating <= 100 unless they are located in Rome
 
 Query: SELECT Rating FROM Customer WHERE Rating <= 100 or City ='Roe';
-
-
-
